@@ -1,0 +1,43 @@
+# Node Modules
+node_modules/
+
+# Environment Variables (Secrets)
+.env
+.env.test
+.env.production
+.env.development
+.env.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Coverage (if you're running tests with Jest or another framework)
+coverage/
+*.lcov
+
+# Database Files (if applicable)
+*.sqlite
+*.sqlite3
+db.sqlite
+db.sqlite3
+*.bak
+
+# Build Files
+build/
+dist/
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

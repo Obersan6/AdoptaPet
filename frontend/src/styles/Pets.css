@@ -1,0 +1,95 @@
+
+
+/* Ensures the title is not under the navbar */
+.pets-page {
+    margin-top: 80px; 
+}
+
+/* Title container to center the icon */
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Paw icon styling */
+.paw-icon {
+    font-size: 50px;
+    color: #ee2aba;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Standardized card design */
+.pet-card {
+    width: 100%; 
+    height: 520px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensures consistent image height */
+.pet-image {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+}
+
+/* Standard card content styling */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    justify-content: space-between;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Ensures text stays properly aligned */
+.card-text {
+    flex-grow: 1; 
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Ensures the button is always at the bottom */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; 
+    width: 100%;
+}
+
+/* Button Styling */
+.btn-primary {
+    width: 90%; 
+    background-color: #7300ff !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #c358ea !important; 
+    border-color: #c358ea !important;
+    color: white !important;
+}
+
+.btn-secondary {
+    background-color: rgb(48, 70, 236) !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: #589aea !important; 
+    border-color: #589aea !important;
+    color: white !important;
+}
+

@@ -1,0 +1,32 @@
+/* Edit profile styles */
+
+.edit-profile-container {
+    max-width: 400px;
+    /* margin: 50px auto; */
+    margin: 8rem auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-form label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.edit-profile-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.edit-profile-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+

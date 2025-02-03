@@ -1,0 +1,103 @@
+
+
+/* Ensures the title is not under the navbar */
+.pet-detail {
+    margin-top: 80px;
+}
+
+/* Title container */
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Paw icon styling */
+.paw-icon {
+    font-size: 50px;
+    color: #ee2aba;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Image Carousel */
+.image-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.pet-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.carousel-btn.left {
+    left: -40px;
+}
+
+.carousel-btn.right {
+    right: -40px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Pet Information */
+.pet-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Container */
+.video-container iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+}
+
+h5 {
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pet-image {
+        height: 200px;
+    }
+
+    .carousel-btn {
+        font-size: 18px;
+        padding: 4px 8px;
+    }
+
+    .carousel-btn.left {
+        left: -30px;
+    }
+
+    .carousel-btn.right {
+        right: -30px;
+    }
+}

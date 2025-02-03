@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "set NODE_ENV=test&& jest --runInBand",
+    "reset:test": "psql -U postgres -d adopta_pet_test -c \"DROP SCHEMA public CASCADE; CREATE SCHEMA public;\" && psql -U postgres -d adopta_pet_test -f database/schema.sql && psql -U postgres -d adopta_pet_test -f database/test_seed.sql && npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "pg": "^8.13.1",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/jest.setup.js"
+    ]
+  }
+}

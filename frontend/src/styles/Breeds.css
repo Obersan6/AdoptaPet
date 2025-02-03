@@ -1,0 +1,77 @@
+
+
+/* Ensures the title is not under the navbar */
+.breeds-page {
+    margin-top: 80px; /* Adjust to ensure navbar doesn't overlap */
+}
+
+/* itle container to center the icon */
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Paw icon styling */
+.paw-icon {
+    font-size: 50px;
+    color: #ee2aba;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Breed list container */
+.breed-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* Each breed card */
+.breed-card {
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 12px;
+    width: 150px; 
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+}
+
+.breed-card:hover {
+    transform: scale(1.05);
+    background-color: #f3f3f3;
+}
+
+/* Pagination buttons */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover effect for pagination buttons */
+.pagination-button:hover:not(:disabled) {
+    background-color: #589aea !important; 
+}
+
+.pagination-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

@@ -1,0 +1,135 @@
+
+
+/* Ensures the title is not under the navbar */
+.find-pet-page {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Push content up so footer stays at the bottom */
+.find-pet-content {
+    flex: 1;
+}
+
+/* Title container */
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Paw icon styling */
+.paw-icon {
+    font-size: 50px;
+    color: #ee2aba;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Center form and make it visually appealing */
+.find-pet-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Form Styling */
+.find-pet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Fields */
+.find-pet-form select,
+.find-pet-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Search Button */
+.find-pet-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7300ff;;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.find-pet-button:hover {
+    background-color: #c358ea;
+}
+
+/* Search Results Styling */
+.find-pet-results {
+    margin-top: 30px;
+}
+
+/* Standardized pet card design */
+.pet-card {
+    width: 100%;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensures consistent image height */
+.pet-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Card body styling */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Text Styling */
+.card-text {
+    flex-grow: 1;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Ensures the button stays at the bottom */
+.btn-primary {
+    width: 90%;
+    margin-top: auto;
+}
+
+/* Button Hover Effect */
+.btn-primary:hover {
+    background-color: #589aea !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .find-pet-container {
+        width: 90%;
+    }
+}

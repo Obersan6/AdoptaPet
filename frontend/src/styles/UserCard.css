@@ -1,0 +1,22 @@
+/* Styles for UserCard */
+
+.user-info {
+    position: fixed; /* Keeps it in place while scrolling */
+    top: 20px; 
+    left: 20px; 
+    width: 80px;
+    height: 80px;
+    background-color: rgba(148, 151, 237, 0.9);
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: #0d0d0d;
+    font-size: 14px;
+    overflow: hidden;
+    z-index: 9999; /* Ensures it stays on top of everything */
+    pointer-events: none; /* Prevents interaction issues */
+}

@@ -73,9 +73,4 @@ CREATE TABLE dog_tags (
     PRIMARY KEY (dog_id, tag_id)
 );
 
--- Many-to-Many table: Stores users' favorite dogs
-CREATE TABLE user_favorites (
-    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    dog_id INT NOT NULL REFERENCES dogs(id) ON DELETE CASCADE,
-    PRIMARY KEY (user_id, dog_id)
-);
+
