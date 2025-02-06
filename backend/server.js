@@ -68,13 +68,11 @@
 
 const express = require("express");
 const cors = require("cors");
-const pool = require("./db");
-
-const app = express();  // Initialize express before using it
+const app = express();
 
 // CORS Configuration
 const allowedDevOrigins = ["http://localhost:5173", "http://localhost:4173"];
-const allowedProdOrigin = "https://your-deployed-frontend.vercel.app"; // Replace with your actual deployed frontend URL
+const allowedProdOrigin = "https://adoptapet.vercel.app"; // Replace with your actual deployed frontend URL
 
 const corsOptions = {
     origin: function (origin, callback) {
