@@ -11,12 +11,14 @@ if (process.env.NODE_ENV === "test") {
 
 const { Pool } = require('pg');
 
-const connectionString = process.env.NODE_ENV === "test"
-    ? process.env.TEST_DATABASE_URL
-    : process.env.DATABASE_URL;
+// Handle production vs development database URLs
+const connectionString = process.env.NODE_ENV === "production"
+    ? process.env.PROD_DATABASE_URL  // Use Supabase DB URL in production
+    : process.env.DATABASE_URL;     // Use local DB URL in development
 
 if (!connectionString) {
     console.error("DATABASE_URL is missing in .env or .env.test!");
+    console.error("DATABASE_URL or PROD_DATABASE_URL is missing in .env or .env.test!");
     console.log("Current ENV:", process.env.NODE_ENV);
     console.log("Available ENV Vars:", process.env);
     process.exit(1);
