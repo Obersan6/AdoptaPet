@@ -1,17 +1,22 @@
+/* Pets styling (dogs) */
 
 
-/* Ensures the title is not under the navbar */
-.pets-page {
-    margin-top: 80px; 
+body {
+    background-color: #f9f9fc !important; 
 }
 
-/* Title container to center the icon */
+.pets-page {
+    margin-top: 80px; 
+    background-color: #f9f9fc !important; 
+    min-height: 100vh; 
+    padding-bottom: 50px; 
+}
+
 .title-container {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Paw icon styling */
 .paw-icon {
     font-size: 50px;
     color: #ee2aba;
@@ -19,7 +24,6 @@
     margin: 10px auto;
 }
 
-/* Standardized card design */
 .pet-card {
     width: 100%; 
     height: 520px; 
@@ -31,16 +35,16 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;
 }
 
-/* Ensures consistent image height */
+
 .pet-image {
     width: 100%;
     height: 250px; 
     object-fit: cover; 
 }
 
-/* Standard card content styling */
 .card-body {
     display: flex;
     flex-direction: column;
@@ -50,11 +54,16 @@
     width: 100%;
 }
 
-/* Ensures text stays properly aligned */
+
 .card-text {
     flex-grow: 1; 
     font-size: 14px;
     text-align: center;
+}
+
+/* Pagination buttons */
+.d-flex {
+    padding-top: 20px;
 }
 
 /* Ensures the button is always at the bottom */
@@ -93,3 +102,26 @@
     color: white !important;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pets-page {
+        padding-bottom: 80px;
+    }
+
+    .title-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .paw-icon {
+        font-size: 45px;
+    }
+
+    .pet-card {
+        height: auto;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}

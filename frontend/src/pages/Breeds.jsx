@@ -1,5 +1,5 @@
  
-
+import React from "react";
 import { useEffect, useState } from "react";
 import { FaPaw } from "react-icons/fa"; 
 import { fetchBreeds } from "../api/api";

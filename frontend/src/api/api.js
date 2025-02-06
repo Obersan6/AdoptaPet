@@ -44,11 +44,6 @@ export const signupUser = async (userData) => {
     }
 };
 
-// ==========================
-// PROFILE API METHODS
-// ==========================
-
-// Fetch User Profile
 export const fetchUserProfile = async (token, userId) => {
     try {
         if (!userId) {
@@ -60,16 +55,19 @@ export const fetchUserProfile = async (token, userId) => {
             headers: { Authorization: `Bearer ${token}` },
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-            throw new Error("Failed to fetch user profile");
+            throw new Error(data.error || "Failed to fetch user profile");
         }
 
-        return await response.json();
+        return data;
     } catch (error) {
         console.error("API Error:", error);
         return { error: error.message };
     }
 };
+
 
 export const updateUserProfile = async (token, userId, firstName, lastName) => {
     try {

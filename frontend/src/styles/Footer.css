@@ -1,4 +1,4 @@
-/* Make the footer stick to the bottom */
+/* Makes the footer stick to the bottom */
 .app-container {
     display: flex;
     flex-direction: column;
@@ -11,9 +11,11 @@
 
 /* Footer Styling */
 .footer {
-    background-color: #e1dcf4;
-    color: rgb(33, 31, 31);
+    background-color: rgb(241, 29, 72);
+    color: white;
     text-align: center;
     padding: 15px 0;
-    width: 100%;
+    width: 100vw; /* Ensures full width */
+    position: relative;
+    left: 0;
 }

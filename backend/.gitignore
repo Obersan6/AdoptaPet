@@ -41,3 +41,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Documents
+Hatchways_Capstone1_Results.pdf
+Request-Basic-API-Access_Petfinder.pdf

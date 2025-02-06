@@ -6,7 +6,7 @@ const authenticateJWT = require('../middleware/auth');
 
 const router = express.Router();
 
-// New route: Find pets by location or breed
+// New route: Find dogs by location or breed
 router.get('/search', authenticateJWT, async (req, res) => {
     try {
         const { location, breed } = req.query;

@@ -14,8 +14,8 @@ beforeAll(async () => {
 
     // Login user to get a token
     const res = await request(server).post("/api/auth/login").send({
-        email: "test@example.com",
-        password: "password123"
+        username: "testuser",  
+        password: "Testpassword123",
     });
     token = res.body.token;
 });

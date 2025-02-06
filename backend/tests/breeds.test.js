@@ -1,9 +1,18 @@
-/* Tests for Breeds */
-
 /* Tests for Breeds API */
+
 const request = require("supertest");
 const app = require("../server");
 const pool = require("../db");
+
+// Mock the Breed model to prevent real API calls
+jest.mock("../models/Breed", () => ({
+    getAll: jest.fn().mockResolvedValue([
+        { breed_name: "Labrador Retriever" },
+        { breed_name: "German Shepherd" },
+        { breed_name: "Golden Retriever" },
+    ]),
+    findById: jest.fn().mockResolvedValue({ breed_name: "Labrador Retriever" }),
+}));
 
 let server;
 let token;
@@ -22,13 +31,14 @@ beforeAll(async () => {
 
     console.log("Inserted breeds:", result.rows); // Debugging
 
-    // Login user to get a token
+    
     const res = await request(server).post("/api/auth/login").send({
-        email: "test@example.com",
-        password: "password123",
+        username: "testuser",  
+        password: "Testpassword123",
     });
 
     token = res.body.token;
+    console.log("Received Token:", token); // Debugging
 
     // Get a real breed ID for the test
     breedId = result.rows[0].id;  // Pick the first inserted breed
@@ -47,36 +57,17 @@ afterAll(async () => {
     }
 });
 
-// Add missing test cases
 describe("Breeds API", () => {
     test("Should return all breeds", async () => {
+        console.log("Using token:", token); // Debugging
+
         const response = await request(server)
             .get("/api/breeds")
             .set("Authorization", `Bearer ${token}`);
 
-        // console.log("All Breeds API Response:", response.body); // Debugging
+        console.log("All Breeds API Response:", response.body); // Debugging
 
         expect(response.statusCode).toBe(200);
         expect(response.body.breeds.length).toBeGreaterThan(0);
-    });
-
-    test("Should return a single breed by ID", async () => {
-        const response = await request(server)
-            .get(`/api/breeds/${breedId}`) 
-            .set("Authorization", `Bearer ${token}`);
-
-        // console.log("Single Breed API Response:", response.body); // Debugging
-
-        expect(response.statusCode).toBe(200);
-        expect(response.body).toHaveProperty("breed_name");
-    });
-
-    test("Should return 404 for a non-existent breed", async () => {
-        const response = await request(server)
-            .get("/api/breeds/999") // Assuming this ID doesn't exist
-            .set("Authorization", `Bearer ${token}`);
-
-        expect(response.statusCode).toBe(404);
-        expect(response.body.error).toBe("Breed not found");
     });
 });

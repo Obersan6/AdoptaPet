@@ -1,5 +1,5 @@
 /* Username card */
-
+import React from "react";
 import { useAuth } from "../context/AuthContext";
 import "../styles/UserCard.css"; 
 

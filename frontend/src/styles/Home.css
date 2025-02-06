@@ -1,4 +1,4 @@
-
+/*  Homepage styling */
 
 .home-container {
     display: flex;
@@ -9,6 +9,7 @@
     background-color: #f9f9fc;
     padding: 20px;
     position: relative;
+    padding-top: 80px; 
 }
 
 /* Ensure text inside the circle fits */
@@ -18,10 +19,12 @@
     padding: 5px;
 }
 
+
 /* Centered home content */
 .home-content {
     text-align: center;
     max-width: 500px;
+    margin-top: 20px; /* Prevents overlapping */
 }
 
 .paw-icon {
@@ -66,4 +69,9 @@
     .home-subtitle {
         font-size: 1rem;
     }
+
+    .home-container {
+        padding-top: 100px; /* More space for small screens */
+    }
 }
+

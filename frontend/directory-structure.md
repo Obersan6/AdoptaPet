@@ -1,12 +1,26 @@
 <!-- Frontend directory structure -->
 
-<!-- First draft -->
+
 
 frontend/
+|__ node_modules/
 │── src/
+|   |__ __tests__/
+|   ├── api/           # API functions to fetch data from the backend
 │   ├── components/    # Reusable UI components
+|   |__ contest/
 │   ├── pages/         # Page components (e.g., Home, Pets, PetDetail)
-│   ├── api/           # API functions to fetch data from the backend
+|   |__ styles/
+│   |__ App.css
 │   ├── App.jsx        # Main application component
+|   |── index.css      # Global styles
 │   ├── main.jsx       # Renders App into the DOM
-│   ├── index.css      # Global styles
+│   ├__ setupTests.js
+|__ .gitignore
+|__ eslint.config.js
+|__ index.html
+|__ package-lock.json
+|__ package.json
+|__ vite.config.js
+|__vitest.config.js
+

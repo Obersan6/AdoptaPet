@@ -1,11 +1,11 @@
-
+/* Breed's styles */
 
 /* Ensures the title is not under the navbar */
 .breeds-page {
-    margin-top: 80px; /* Adjust to ensure navbar doesn't overlap */
+    margin-top: 80px; 
 }
 
-/* itle container to center the icon */
+/* title container to center the icon */
 .title-container {
     text-align: center;
     margin-bottom: 20px;

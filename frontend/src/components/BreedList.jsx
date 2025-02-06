@@ -1,7 +1,10 @@
 /* BreedList component: Fetches and displays the breeds from your backend. */
 
+import React from "react";
 import { useEffect, useState } from "react";
 import { fetchBreeds } from "../api/api";
+
+
 
 function BreedList({ page, setPage }) {
     const [breeds, setBreeds] = useState([]);
@@ -9,16 +12,21 @@ function BreedList({ page, setPage }) {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
+       
         const getBreeds = async () => {
             if (!token) {
                 setError("Unauthorized: Please log in first.");
                 return;
             }
+    
             const data = await fetchBreeds(token, 10, page);
+            
             if (data.error) {
-                setError(data.error);
+                setError(data.error);  // Set error if it exists
+            } else if (data && Array.isArray(data.breeds)) {
+                setBreeds(data.breeds);  // Safely handle breeds if the structure is correct
             } else {
-                setBreeds(data.breeds);
+                setError("Unexpected response format.");
             }
         };
         getBreeds();

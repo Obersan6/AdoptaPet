@@ -1,46 +1,88 @@
 /* Styling for signup page */
 
-.container {
+/* Fix navbar overlap */
+.signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f9f9fc;
+    padding-top: 80px; 
+    padding-bottom: 60px; 
 }
 
-.card {
+/* Card styles */
+.signup-card {
     width: 100%;
     max-width: 400px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #343a40;
+    padding: 30px;
     text-align: center;
 }
 
+/* Paw icon */
+.paw-icon {
+    font-size: 40px;
+    color: #ee2aba;
+    margin-bottom: 10px;
+}
+
+/* Title */
+.signup-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 15px;
+}
+
+/* Alert */
 .alert {
     font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
     margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
 }
 
-input.form-control {
-    border-radius: 5px;
-    padding: 10px;
+/* Input fields */
+.input-group {
+    margin-bottom: 15px;
 }
 
-button {
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Signup button */
+.signup-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #7300ff;
+    color: white;
+    font-size: 1rem;
     font-weight: bold;
-    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.signup-button:hover {
+    background-color: #c358ea;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .signup-container {
+        padding-top: 100px;
+    }
+
+    .signup-card {
+        padding: 25px;
+    }
 }
