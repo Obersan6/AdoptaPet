@@ -66,8 +66,11 @@
 //     module.exports = app;  // Export app for testing
 // }
 
+
+
 const express = require("express");
 const cors = require("cors");
+const { Pool } = require("pg"); // Import the Pool from pg package
 const app = express();
 
 // CORS Configuration
@@ -101,6 +104,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// Set up PostgreSQL client pool
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL, // Set your database URL from environment variables
+    ssl: {
+        rejectUnauthorized: false, // Use this if your PostgreSQL is hosted with SSL enabled (e.g., Heroku)
+    }
+});
+
 // Connect to PostgreSQL only in non-test mode
 if (process.env.NODE_ENV !== "test") {
     pool.connect()
@@ -132,3 +143,4 @@ if (process.env.NODE_ENV !== "test") {
 } else {
     module.exports = app;  // Export app for testing
 }
+
