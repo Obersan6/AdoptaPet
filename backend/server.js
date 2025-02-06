@@ -68,79 +68,65 @@
 
 
 
+
+
+
 const express = require("express");
 const cors = require("cors");
-const { Pool } = require("pg"); // Import the Pool from pg package
+const { Pool } = require("pg");
 const app = express();
 
 // CORS Configuration
-const allowedDevOrigins = ["http://localhost:5173", "http://localhost:4173"];
-const allowedProdOrigin = "https://adoptapet.vercel.app"; // Replace with your actual deployed frontend URL
+const allowedProdOrigins = [
+    "https://adoptapet-wk33.onrender.com",  // Frontend deployed URL
+    "http://localhost:5173",  // Local development
+    "http://localhost:4173"   // Vite preview
+];
 
 const corsOptions = {
     origin: function (origin, callback) {
         console.log(`Incoming request from origin: ${origin}`);
-
-        if (process.env.NODE_ENV === "production") {
-            // Allow localhost for testing in production mode
-            if (allowedDevOrigins.includes(origin) || origin === allowedProdOrigin) {
-                callback(null, true);
-            } else {
-                callback(new Error("Not allowed by CORS (production)"));
-            }
+        if (!origin || allowedProdOrigins.includes(origin)) {
+            callback(null, true);
         } else {
-            if (allowedDevOrigins.includes(origin)) {
-                callback(null, true);
-            } else {
-                callback(new Error("Not allowed by CORS (development)"));
-            }
+            callback(new Error("Not allowed by CORS"));
         }
     },
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true
 };
 
-// Apply CORS Middleware before defining routes
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Set up PostgreSQL client pool
+// PostgreSQL Client Pool Setup
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL, // Set your database URL from environment variables
-    ssl: {
-        rejectUnauthorized: false, // Use this if your PostgreSQL is hosted with SSL enabled (e.g., Heroku)
-    }
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false
 });
 
-// Connect to PostgreSQL only in non-test mode
+// Connect to PostgreSQL (skip if testing)
 if (process.env.NODE_ENV !== "test") {
     pool.connect()
         .then(() => console.log("Connected to PostgreSQL"))
         .catch(err => console.error("PostgreSQL connection error:", err));
 }
 
-// Import routes
-const authRoutes = require("./routes/auth");
-const breedRoutes = require("./routes/breeds");
-const dogRoutes = require("./routes/dogs");
-const userRoutes = require("./routes/users");
+// Import and Register Routes
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/breeds", require("./routes/breeds"));
+app.use("/api/dogs", require("./routes/dogs"));
+app.use("/api/users", require("./routes/users"));
 
-// Register routes
-app.use("/api/auth", authRoutes);
-app.use("/api/breeds", breedRoutes);
-app.use("/api/dogs", dogRoutes);
-app.use("/api/users", userRoutes);
-
-// Default route
+// Default Route
 app.get("/", (req, res) => {
     res.json({ message: "API is running!" });
 });
 
-// Prevent Jest from launching a real server
+// Start Server (skip in test mode)
 if (process.env.NODE_ENV !== "test") {
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 } else {
-    module.exports = app;  // Export app for testing
+    module.exports = app;
 }
-
