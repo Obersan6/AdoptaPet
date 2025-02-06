@@ -69,7 +69,6 @@
 
 
 
-
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
@@ -86,7 +85,7 @@ const corsOptions = {
     origin: function (origin, callback) {
         console.log(`Incoming request from origin: ${origin}`);
         
-        // Allow requests with no origin (e.g., Postman, curl)
+        // Allow requests with no origin (Postman, mobile apps, etc.)
         if (!origin || allowedProdOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -102,9 +101,9 @@ app.use(express.json());
 
 // PostgreSQL Client Pool Setup
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,  // Supabase or local DB URL
+    connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV === "production" 
-        ? { require: true, rejectUnauthorized: false }  // Ensure SSL in production
+        ? { require: true, rejectUnauthorized: false } 
         : false
 });
 
@@ -128,8 +127,9 @@ app.get("/", (req, res) => {
 
 // Start Server (Render dynamically assigns PORT)
 if (process.env.NODE_ENV !== "test") {
-    const PORT = process.env.PORT || 5000;  // Render provides PORT dynamically
+    const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 } else {
     module.exports = app;  // Export for testing
 }
+

@@ -1,5 +1,9 @@
 /* Configuration of Database Connection - This page manages Postgres connections. */
 
+
+
+
+
 const dotenv = require('dotenv');
 
 // Load environment variables
@@ -26,8 +30,8 @@ if (!connectionString) {
 // Create database connection pool
 const pool = new Pool({
     connectionString,
-    ssl: process.env.NODE_ENV === "production" 
-        ? { require: true, rejectUnauthorized: false }  // Force SSL in production
+    ssl: process.env.NODE_ENV === "production"
+        ? { rejectUnauthorized: false, ca: process.env.SSL_CERT }  // Ensure proper SSL with optional CA
         : false
 });
 
@@ -44,3 +48,4 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 module.exports = pool;
+
