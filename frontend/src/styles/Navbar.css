@@ -1,0 +1,73 @@
+
+
+body {
+    background-color: #dadaf2 !important; 
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #ffffff !important; 
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08); 
+}
+
+/* Logo Styling */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #870cf2 !important; 
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #333 !important; 
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.navbar-nav .nav-link:hover {
+    color: #B45FCA !important; 
+}
+
+/* Active Link */
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #B45FCA !important;
+}
+
+/* Dropdown Menu */
+.navbar-nav .dropdown-menu {
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Dropdown Item */
+.navbar-nav .dropdown-item {
+    color: #333 !important;
+}
+
+/* Dropdown Hover Effect */
+.navbar-nav .dropdown-item:hover {
+    background-color: #E8DFF2 !important; 
+}
+
+/* Responsive Styling */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .navbar-toggler {
+        border: none;
+        outline: none;
+    }
+    .navbar-toggler-icon {
+        background-color: #C084CF; 
+        border-radius: 4px;
+        padding: 5px;
+    }
+}
