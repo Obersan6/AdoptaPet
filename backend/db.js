@@ -2,6 +2,7 @@
 
 const dotenv = require('dotenv');
 
+// Load environment variables
 if (process.env.NODE_ENV === "test") {
     console.log("Test mode detected - Loading .env.test...");
     dotenv.config({ path: ".env.test" });
@@ -11,25 +12,26 @@ if (process.env.NODE_ENV === "test") {
 
 const { Pool } = require('pg');
 
-// Handle production vs development database URLs
+// Select appropriate connection string
 const connectionString = process.env.NODE_ENV === "production"
-    ? process.env.PROD_DATABASE_URL  // Use Supabase DB URL in production
-    : process.env.DATABASE_URL;     // Use local DB URL in development
+    ? process.env.PROD_DATABASE_URL  // Supabase connection for production
+    : process.env.DATABASE_URL;     // Local database for development
 
+// Validate connection string presence
 if (!connectionString) {
-    console.error("DATABASE_URL is missing in .env or .env.test!");
-    console.error("DATABASE_URL or PROD_DATABASE_URL is missing in .env or .env.test!");
-    console.log("Current ENV:", process.env.NODE_ENV);
-    console.log("Available ENV Vars:", process.env);
+    console.error("DATABASE_URL or PROD_DATABASE_URL is missing in the environment variables.");
     process.exit(1);
 }
 
+// Create database connection pool
 const pool = new Pool({
     connectionString,
-    ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false
+    ssl: process.env.NODE_ENV === "production" 
+        ? { require: true, rejectUnauthorized: false }  // Force SSL in production
+        : false
 });
 
-// Prevent multiple connections in tests
+// Connect and verify database (skip in test mode)
 if (process.env.NODE_ENV !== "test") {
     (async () => {
         try {
