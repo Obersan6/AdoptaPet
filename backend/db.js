@@ -2,50 +2,27 @@
 
 
 
-
-
+const { Pool } = require('pg');
 const dotenv = require('dotenv');
 
 // Load environment variables
-if (process.env.NODE_ENV === "test") {
-    console.log("Test mode detected - Loading .env.test...");
-    dotenv.config({ path: ".env.test" });
-} else {
-    dotenv.config();
-}
+dotenv.config();
 
-const { Pool } = require('pg');
-
-// Select appropriate connection string
+// Select connection string based on environment
 const connectionString = process.env.NODE_ENV === "production"
-    ? process.env.PROD_DATABASE_URL  // Supabase connection for production
-    : process.env.DATABASE_URL;     // Local database for development
+    ? process.env.PROD_DATABASE_URL  // Supabase for production
+    : process.env.DATABASE_URL;     // Local DB for development
 
-// Validate connection string presence
 if (!connectionString) {
-    console.error("DATABASE_URL or PROD_DATABASE_URL is missing in the environment variables.");
+    console.error("DATABASE_URL or PROD_DATABASE_URL is missing!");
     process.exit(1);
 }
 
-// Create database connection pool
 const pool = new Pool({
     connectionString,
-    ssl: process.env.NODE_ENV === "production"
-        ? { rejectUnauthorized: false, ca: process.env.SSL_CERT }  // Ensure proper SSL with optional CA
+    ssl: process.env.NODE_ENV === "production" 
+        ? { require: true, rejectUnauthorized: false } 
         : false
 });
 
-// Connect and verify database (skip in test mode)
-if (process.env.NODE_ENV !== "test") {
-    (async () => {
-        try {
-            const result = await pool.query(`SELECT current_database()`);
-            console.log(`Connected to database: ${result.rows[0].current_database}`);
-        } catch (err) {
-            console.error("Database connection error:", err.message);
-        }
-    })();
-}
-
 module.exports = pool;
-
