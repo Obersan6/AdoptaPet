@@ -73,6 +73,11 @@ const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
 const app = express();
+// Import routes (Only require once)
+const authRoutes = require("./routes/auth");
+const breedRoutes = require("./routes/breeds");
+const dogRoutes = require("./routes/dogs");
+const userRoutes = require("./routes/users");
 
 // CORS Configuration
 const allowedProdOrigins = [
@@ -115,10 +120,10 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 // Import and Register Routes
-app.use("/api/auth", require("../routes/auth"));
-app.use("/api/breeds", require("../routes/breeds"));
-app.use("/api/dogs", require("../routes/dogs"));
-app.use("/api/users", require("../routes/users"));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/breeds", require("./routes/breeds"));
+app.use("/api/dogs", require("./routes/dogs"));
+app.use("/api/users", require("./routes/users"));
 
 // Default Route
 app.get("/", (req, res) => {
