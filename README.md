@@ -5,7 +5,7 @@
 
 Built with **Node.js** for the backend and **React with Vite** for the frontend, AdoptaDog leverages the **Petfinder API** to fetch real-time data on adoptable dogs.
 
-🔗 [Click here to visit AdodptaDog](URL )
+🔗 [Click here to visit AdodptaDog](https://adoptapet-wk33.onrender.com)
 
 ## 🚀 Features
 
