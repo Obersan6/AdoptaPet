@@ -16,7 +16,7 @@ out/
 .vite/
 
 # Local Environment Variables
-
+.env
 .env.development
 .env.local
 
