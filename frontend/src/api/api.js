@@ -1,6 +1,9 @@
 /* Handles API calls to the backend */
 
-const API_BASE_URL = "http://localhost:5000/api"; // Backend URL
+// const API_BASE_URL = "http://localhost:5000/api"; // Backend development URL
+
+// production backend url
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 // Login User (Uses username instead of email)
 export const loginUser = async (username, password) => {

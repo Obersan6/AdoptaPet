@@ -115,10 +115,10 @@ if (process.env.NODE_ENV !== "test") {
 }
 
 // Import and Register Routes
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/breeds", require("./routes/breeds"));
-app.use("/api/dogs", require("./routes/dogs"));
-app.use("/api/users", require("./routes/users"));
+app.use("/api/auth", require("../routes/auth"));
+app.use("/api/breeds", require("../routes/breeds"));
+app.use("/api/dogs", require("../routes/dogs"));
+app.use("/api/users", require("../routes/users"));
 
 // Default Route
 app.get("/", (req, res) => {
