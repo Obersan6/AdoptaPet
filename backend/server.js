@@ -1,4 +1,7 @@
-﻿const express = require("express");
+﻿// Correct version: Fixed submission error taken place on 2025-02-07 - fixed on 2025-02-08
+
+
+const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
 
